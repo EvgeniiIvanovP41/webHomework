@@ -1,0 +1,23 @@
+@font-face {
+  font-family: Samson;
+  src: url("Work/styles/Samson.ttf");
+  -moz-background-size: 100%;
+  -webkit-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+}
+
+#clock {
+  font-family: Samson;
+  src: url(lab1/styles/Samson.ttf);
+  color: aqua;
+  font-weight: bold;
+  font-size: 2500%;
+  text-shadow: 0 0 20px rgb(0, 179, 202);
+  text-align: center;
+  padding-top: 10%;
+}
+
+body {
+  background: rgb(24, 23, 23);
+}
