@@ -110,6 +110,13 @@ function calculator(expression) {
   return result;
 }
 
+let calculatorElem = document.Calculation;
+let display = calculatorElem.Display
+
+/*calculatorElem.addEventListener('click', evt => {
+  display.value += evt.target.value
+})*/
+
 var button = document.getElementsByClassName("button")[0];
 button.addEventListener("click", function() {
   let textBox = document.getElementsByClassName("textbox")[0];

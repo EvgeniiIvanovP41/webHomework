@@ -3,7 +3,8 @@ body {
   background: linear-gradient(to top left, powderblue, pink);
 }
 
-.mainForm {
+
+/*.mainForm {
   width: 50vw;
   height: 50vh;
   position: absolute;
@@ -53,4 +54,31 @@ body {
   transition-duration: 0.5s;
   background: linear-gradient(to top left, rgb(149, 202, 209), rgb(226, 156, 168));
   color: #e47c9f;
+}*/
+
+.Table {
+  border: 3px inset gray;
+  background: linear-gradient(to top left, rgb(139, 204, 212), rgb(224, 168, 177));
+  width: 270px;
+  text-align: center;
+  border-radius: 5px;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+
+.Table input {
+  border: 2px solid gray;
+  border-radius: 4px;
+  width: 30px;
+  margin: 4px;
+}
+
+#TextEdit {
+  width: 255px;
+  height: 23px;
+}
+
+#WideBtn {
+  width: 93px;
 }

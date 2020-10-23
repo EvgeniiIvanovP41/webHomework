@@ -9,12 +9,70 @@
 </head>
 
 <body>
-  <div class="mainForm">
+  <!--<div class="mainForm">
     <input class="textbox" type="text">
     <input id="textboxResult" type="text">
     <input class="button" type="submit" value="Ввести">
   </div>
-  <script src="script/script.js"></script>
+  <script src="script/script.js"></script> 
+
+  <form name="Calculation" action="">
+    <table class="Table" cellpadding="2" cellspacing="2">
+      <tr>
+        <td colspan=5 align=middle>
+          <input id="TextEdit" name="ReadOut" type="Text" value="0">
+        </td>
+      </tr>
+      <tr>
+        <td><input name="btnSeven" type="Button" value="7" onclick="PressedBut('7')"></td>
+        <td><input name="btnEight" type="Button" value="8" onclick="PressedBut(8)"></td>
+        <td><input name="btnNine" type="Button" value="9" onclick="PressedBut(9)"></td>
+        <td><input name="btnRightBracket" type="Button" value="(" onclick="PressedBut()" /></td>
+        <td><input name="btnLeftBracket" type="Button" value=")" onclick="PressedBut()" /></td>
+      </tr>
+      <tr>
+        <td><input name="btnFour" type="Button" value="4" onclick="PressedBut(4)"></td>
+        <td><input name="btnFive" type="Button" value="5" onclick="PressedBut(5)"></td>
+        <td><input name="btnSix" type="Button" value="6" onclick="PressedBut(6)"></td>
+        <td><input name="btnPlus" type="Button" value="+" onclick="PressedBut('+')" /></td>
+        <td><input name="btnMultiply" type="Button" value="*" onclick="PressedBut('*')" /></td>
+      </tr>
+      <tr>
+        <td><input name="btnOne" type="Button" value="1" onclick="PressedBut(1)"></td>
+        <td><input name="btnTwo" type="Button" value="2" onclick="PressedBut(2)"></td>
+        <td><input name="btnThree" type="Button" value="3" onclick="PressedBut(3)"></td>
+        <td><input name="btnMinus" type="Button" value="-" onclick="PressedBut('-')" /></td>
+        <td><input name="btnDivide" type="Button" value=" / " onclick="PressedBut('/')" /></td>
+      </tr>
+      <tr>
+        <td><input name="btnZero" type="Button" value="0" onclick="PressedBut(0)"></td>
+        <td colspan="2"><input id="WideBtn" name="btnEquals" type="Button" value="=" onclick="PressedBut('=')"></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </form>-->
+
+  <div class="calculator" name="Calculation">
+    <input type="text" class="display" name="Display">
+    <br>
+    <input type="button" value="0" class="number">
+    <input type="button" name="btnOne" value="1" class="number">
+    <input type="button" value="2" class="number">
+    <input type="button" value="3" class="number">
+    <input type="button" value="4" class="number">
+    <input type="button" value="5" class="number">
+    <input type="button" value="6" class="number">
+    <input type="button" value="7" class="number">
+    <input type="button" value="8" class="number">
+    <input type="button" value="9" class="number">
+    <br>
+    <input type="button" value="+" class="action">
+    <input type="button" value="-" class="action">
+    <input type="button" value="*" class="action">
+    <input type="button" value="/" class="action">
+    <input type="button" value="=" class="action">
+  </div>
 </body>
 
 </html>

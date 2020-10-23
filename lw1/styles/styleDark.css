@@ -1,0 +1,164 @@
+@font-face {
+  font-family: SF Mono;
+  src: url(../fonts/SF-Mono.ttf);
+}
+
+@font-face {
+  font-family: New York Small;
+  src: url(../fonts/NewYorkSmall-Medium.otf);
+}
+
+@font-face {
+  font-family: SF Pro Display;
+  src: url(../fonts/SF-Pro-Display-Medium.otf);
+}
+
+body {
+  background-color: rgb(73, 73, 73);
+  color: rgb(168, 168, 168);
+}
+
+.header {
+  float: left;
+  width: 1550px;
+  height: 134px;
+  box-shadow: 0 6px 4px -4px rgba(0, 0, 0, .2);
+}
+
+.header_content {
+  width: 1315.42px;
+  height: 40.46px;
+  left: 63.58px;
+}
+
+.menu_buttons {
+  display: inline-block;
+  margin: 0 15px;
+  vertical-align: top;
+  text-decoration: none;
+  position: relative;
+  width: 71px;
+  height: 34px;
+  left: 990px;
+  top: 50px;
+  font-family: New York Small;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 170%;
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.menu_buttons:after {
+  content: "";
+  display: none;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 41px;
+}
+
+.line {
+  position: absolute;
+  width: 66px;
+  height: 0px;
+  left: 1013px;
+  top: 143px;
+  border: 2px solid #000000;
+}
+
+.logo {
+  left: 100px;
+  top: 80px;
+  position: relative;
+}
+
+.basic_information {
+  float: left;
+  width: 1550px;
+  height: 1000px;
+}
+
+.main_picture {
+  position: relative;
+  top: 77px;
+  text-align: center;
+}
+
+.main_info {
+  position: relative;
+  font-family: New York Extra Large;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 54px;
+  line-height: 100%;
+  text-align: center;
+  left: 20px;
+  top: 150px;
+}
+
+.info {
+  position: relative;
+  font-family: SF Mono;
+  width: 660px;
+  height: 68px;
+  left: 465px;
+  top: 200px;
+  font-size: 20px;
+  line-height: 170%;
+  text-align: center;
+}
+
+.line2 {
+  position: relative;
+  width: 640px;
+  height: 0px;
+  left: 460px;
+  top: 225px;
+  text-align: center;
+  border: 2px solid #000000;
+}
+
+.news {
+  float: unset;
+  position: relative;
+}
+
+.news_title {
+  top: 100px;
+  font-family: New York Extra Large;
+  margin: 0 auto 39px;
+  text-align: center;
+  font-size: 44px;
+}
+
+.news_container {
+  display: flex;
+  justify-content: center;
+}
+
+.news_column {
+  max-width: 304px;
+  margin-right: 28px;
+}
+
+.news_article {
+  max-height: 232px;
+  max-width: 304px;
+  margin-bottom: 100px;
+}
+
+.news_text {
+  font-family: SF Pro Display;
+  font-size: 22px;
+  text-align: center
+}
+
+.news_image {
+  margin-bottom: 20px;
+}
