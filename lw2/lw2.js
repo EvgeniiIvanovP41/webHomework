@@ -179,7 +179,7 @@ function validator(value) {
     },
     isNumber() {
       if (test == true) {
-        if (this.object instanceof Number && !isNaN(this.object)) {
+        if (this.object instanceof Number) {
           this.test = true;
           return this;
         }
@@ -215,3 +215,5 @@ function validator(value) {
     },
   }
 }
+
+//console.log(validator('25.12.1993').isDate().test); (пример того как я проверял валидатор)
