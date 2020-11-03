@@ -10,43 +10,31 @@ function emailCorrect(email) {
 }
 
 function passwordCorrect(password) {
-  if (password.length == 6 && password[0] == password[0].toUpperCase() && /[0-9]/g.test(password) == true) {
+  if (password.length === 6 && password[0] === password[0].toUpperCase() && /[0-9]/g.test(password) === true) {
     return true;
   }
   return false;
 }
 
 function register(email, password) {
-  let check = false;
-  if (emailCorrect(email) == true) {
-    if (passwordCorrect(password) == true) {
-      for (let i = 0; i < userDatabase.length; i++) {
-        if (userDatabase[i].email == email) {
-          check = true;
-        }
-      }
-      if (check != true) {
-        userDatabase.push({ email: email, password: password });
-        return true;
-      }
+  let check = null;
+  if (emailCorrect(email) === true && passwordCorrect(password) === true) {
+    check = userDatabase.findIndex((user) => user.email === email && user.password === password);
+    if (check === -1) {
+      userDatabase.push({ email: email, password: password });
+      return true;
     }
   }
   return false;
 }
 
 function signIn(email, password) {
-  let check = false;
-  if (emailCorrect(email) == true) {
-    if (passwordCorrect(password) == true) {
-      for (let i = 0; i < userDatabase.length; i++) {
-        if (userDatabase[i].email == email) {
-          check = true;
-        }
-      }
-      if (check == true) {
-        authUserData = true;
-        return true;
-      }
+  let check = null;
+  if (emailCorrect(email) === true && passwordCorrect(password) === true) {
+    check = userDatabase.findIndex((user) => user.email === email && user.password === password);
+    if (check === -1) {
+      authUserData = true;
+      return true;
     }
   }
   return false;
@@ -58,19 +46,15 @@ function signOut() {
 
 function resetPassword(email, oldPassword, newPassword) {
   for (let i = 0; i < userDatabase.length; i++) {
-    if (userDatabase[i].email == email) {
-      if (oldPassword != newPassword) {
-        if (passwordCorrect(Newpassword) == true) {
-          userDatabase[i].password = newPassword;
-        }
-      }
+    if (userDatabase[i].email === email && oldPassword != newPassword && passwordCorrect(newPassword) === true) {
+      userDatabase[i].password = newPassword;
     }
   }
   return false;
 }
 
 function isAuth() {
-  if (authUserData == true) {
+  if (authUserData === true) {
     return true;
   }
   return false;
@@ -78,142 +62,100 @@ function isAuth() {
 
 //задание 2 
 function validator(value) {
-  let test = true; //переменая которая возвращает true, если проверка прошла упешно, и false в противном случае
   return result = {
     object: value, // переманная хранящая объект проверки
+    test: true, //переменая которая возвращает true, если проверка прошла упешно, и false в противном случае
+    validate: function() {
+      return this.test;
+    },
     min(number) {
-      if (test == true) { // проверка на то чтобы все проверки в цепочке прошли успешно, или просто возвращаем false (так же по аналогии в следующих функциях)
-        if (this.object > number) {
-          this.test = true;
-          return this;
-        }
-        this.test = false;
+      if (this.test && this.object > number) { // проверка на то чтобы все проверки в цепочке прошли успешно, или просто возвращаем false (так же по аналогии в следующих функциях)
+        this.test = true;
         return this;
       }
       this.test = false;
       return false;
     },
     max(number) {
-      if (test == true) {
-        if (this.object <= number) {
-          this.test = true;
-          return this;
-        }
-        this.test = false;
+      if (this.test && this.object <= number) {
+        this.test = true;
         return this;
       }
       this.test = false;
       return false;
     },
     minLenght(arr) {
-      if (test == true) {
-        if (this.object.lenght > arr.lenght) {
-          this.test = true;
-          return this;
-        }
-        this.test = false;
+      if (this.test && this.object.lenght > arr.lenght) {
+        this.test = true;
         return this;
       }
       this.test = false;
       return false;
     },
     maxLenght(arr) {
-      if (test == true) {
-        if (this.object.lenght <= arr.lenght) {
-          this.test = true;
-          return this;
-        }
-        this.test = false;
+      if (this.test && this.object.lenght <= arr.lenght) {
+        this.test = true;
         return this;
       }
       this.test = false;
       return false;
     },
     equal(checkValue) {
-      if (test == true) {
-        if (checkValue.toString() == this.object.toString()) {
-          this.test = true;
-          return this;
-        }
-        this.test = false;
+      if (this.test && checkValue.toString() === this.object.toString()) {
+        this.test = true;
         return this;
       }
       this.test = false;
       return this;
     },
     isString() {
-      if (test == true) {
-        if (typeof this.object === "string" || this.object instanceof String) {
-          this.test = true;
-          return this;
-        }
-        this.test = false;
+      if (this.test && this.object instanceof String) {
+        this.test = true;
         return this;
       }
       this.test = false;
       return false;
     },
     isEmail() {
-      if (test == true) {
-        if (this.object.match(/^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i) != null) {
-          this.test = true;
-          return this;
-        }
-        this.test = false;
+      if (this.test && this.object.match(/^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i) != null) {
+        this.test = true;
         return this;
       }
       this.test = false;
-      return false;
+      return this;
     },
     isArray() {
-      if (test == true) {
-        if (this.object instanceof Array) {
-          this.test = true;
-          return this;
-        }
-        this.test = false;
+      if (this.test && this.object instanceof Array) {
+        this.test = true;
         return this;
       }
       this.test = false;
-      return false;
+      return this;
     },
     isNumber() {
-      if (test == true) {
-        if (this.object instanceof Number) {
-          this.test = true;
-          return this;
-        }
-        this.test = false;
+      if (this.test && this.object instanceof Number) {
+        this.test = true;
         return this;
       }
       this.test = false;
-      return false;
+      return this;
     },
     isFloat() {
-      if (test == true) {
-        if (!isNaN(this.object) && this.object.toString().indexOf('.') != -1) {
-          this.test = true;
-          return this;
-        }
-        this.test = false;
+      if (this.test && !isNaN(this.object) && this.object.toString().indexOf('.') != -1) {
+        this.test = true;
         return this;
       }
       this.test = false;
-      return false;
+      return this;
     },
     isDate() {
-      if (test == true) {
-        if (this.object.match(/^\d{1,2}\.\d{1,2}\.\d{4}$/) != null) {
-          this.test = true;
-          return this;
-        }
-        this.test = false;
+      if (this.test === true && this.object.match(/^\d{1,2}\.\d{1,2}\.\d{4}$/) != null) {
+        this.test = true;
         return this;
       }
       this.test = false;
-      return false;
+      return this;
     },
   }
 }
-
-//console.log(validator('25.12.1993').isDate().test); (пример того как я проверял валидатор)
+console.log(validator([1, 2, 3]).isArray().validate()); //(пример того как я проверял валидатор)
