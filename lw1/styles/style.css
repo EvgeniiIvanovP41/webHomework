@@ -26,6 +26,20 @@
   left: 63.58px;
 }
 
+.menu_buttons1 {
+  display: inline-block;
+  position: relative;
+  left: 990px;
+  top: 50px;
+  font-family: New York Small;
+  font-size: 20px;
+  line-height: 170%;
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 4px solid black;
+}
+
 .menu_buttons {
   display: inline-block;
   margin: 0 15px;
