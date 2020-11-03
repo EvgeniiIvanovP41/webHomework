@@ -32,7 +32,7 @@ function signIn(email, password) {
   let check = null;
   if (emailCorrect(email) === true && passwordCorrect(password) === true) {
     check = userDatabase.findIndex((user) => user.email === email && user.password === password);
-    if (check === -1) {
+    if (check === 1) {
       authUserData = true;
       return true;
     }
