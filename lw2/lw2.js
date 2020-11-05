@@ -3,7 +3,7 @@ var authUserData = null;
 var userDatabase = [];
 
 function emailCorrect(email) {
-  if (email.match(/^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i) != null) {
+  if (email.match(/^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i) !== null) {
     return true;
   }
   return false;
@@ -17,10 +17,10 @@ function passwordCorrect(password) {
 }
 
 function register(email, password) {
-  let check = null;
+  let searchUserIndex = null;
   if (emailCorrect(email) === true && passwordCorrect(password) === true) {
-    check = userDatabase.findIndex((user) => user.email === email && user.password === password);
-    if (check === -1) {
+    searchUserIndex = userDatabase.findIndex((user) => user.email === email && user.password === password);
+    if (searchUserIndex === -1) {
       userDatabase.push({ email: email, password: password });
       return true;
     }
@@ -29,10 +29,10 @@ function register(email, password) {
 }
 
 function signIn(email, password) {
-  let check = null;
+  let searchUserIndex = null;
   if (emailCorrect(email) === true && passwordCorrect(password) === true) {
-    check = userDatabase.findIndex((user) => user.email === email && user.password === password);
-    if (check === 1) {
+    searchUserIndex = userDatabase.findIndex((user) => user.email === email && user.password === password);
+    if (searchUserIndex !== 1) {
       authUserData = true;
       return true;
     }
@@ -46,7 +46,7 @@ function signOut() {
 
 function resetPassword(email, oldPassword, newPassword) {
   for (let i = 0; i < userDatabase.length; i++) {
-    if (userDatabase[i].email === email && oldPassword != newPassword && passwordCorrect(newPassword) === true) {
+    if (userDatabase[i].email === email && oldPassword !== newPassword && passwordCorrect(newPassword) === true) {
       userDatabase[i].password = newPassword;
     }
   }
@@ -117,7 +117,7 @@ function validator(value) {
       return false;
     },
     isEmail() {
-      if (this.test && this.object.match(/^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i) != null) {
+      if (this.test && this.object.match(/^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i) !== null) {
         this.test = true;
         return this;
       }
@@ -141,7 +141,7 @@ function validator(value) {
       return this;
     },
     isFloat() {
-      if (this.test && !isNaN(this.object) && this.object.toString().indexOf('.') != -1) {
+      if (this.test && !isNaN(this.object) && this.object.toString().indexOf('.') !== -1) {
         this.test = true;
         return this;
       }
@@ -149,7 +149,7 @@ function validator(value) {
       return this;
     },
     isDate() {
-      if (this.test === true && this.object.match(/^\d{1,2}\.\d{1,2}\.\d{4}$/) != null) {
+      if (this.test === true && this.object.match(/^\d{1,2}\.\d{1,2}\.\d{4}$/) !== null) {
         this.test = true;
         return this;
       }
@@ -158,4 +158,4 @@ function validator(value) {
     },
   }
 }
-console.log(validator([1, 2, 3]).isArray().validate()); //(пример того как я проверял валидатор)
+console.log(validator("sajgh").isEmail().validate()); //(пример того как я проверял валидатор)
